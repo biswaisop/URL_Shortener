@@ -1,41 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-:root {
-  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #e5eef8;
-  background: #0b1017;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --color-zinc-850: #1f1f23;
+  --color-zinc-925: #131316;
+}
+
+body {
+  background-color: var(--color-zinc-925);
+  color: var(--color-zinc-100);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  background: #0b1017;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background: #0b1017;
-  color: #e5eef8;
-}
-
-#root {
-  min-height: 100vh;
-}
-
 ::selection {
-  background: #d9e5f4;
-  color: #08111b;
-}
-
-.font-mono,
-code,
-pre {
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  background-color: var(--color-zinc-700);
 }
