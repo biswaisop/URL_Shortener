@@ -1,11 +1,15 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env")
+class Settings:
+    DATABASE_URL: str = os.getenv(
+        "DATABASE_URL", "postgresql+asyncpg://dev:dev@db:5432/urlshortener"
+    )
+    BASE_URL: str = os.getenv("BASE_URL", "http://localhost:8000")
+    SHORT_CODE_LENGTH: int = int(os.getenv("SHORT_CODE_LENGTH", "6"))
 
-    DATABASE_URL: str = "postgresql+asyncpg://dev:dev@db:5432/urlshortener"
-    BASE_URL: str = "http://localhost:8000"
-    SHORT_CODE_LENGTH: int = 6
 
 settings = Settings()

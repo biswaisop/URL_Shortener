@@ -22,7 +22,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/urlshortener
+      DATABASE_URL: postgresql://dev:yRvdbEvoSZSlP1pOFPw9TGKh0Q4KH1Nf@dpg-d9ssg56gekts7399ip40-a/urlshortener_ufmg
       BASE_URL: http://localhost:8000
     depends_on:
       db:
