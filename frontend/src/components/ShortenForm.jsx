@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_BASE = import.meta.env.BACKEND_API_URL || "http://localhost:8000";
+const API_BASE = import.meta.env.VITE_BACKEND_API_URL || "http://localhost:8000";
 
 export default function ShortenForm({ onResult, onError }) {
   const [url, setUrl] = useState("");
