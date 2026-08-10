@@ -16,6 +16,6 @@ class URLStats(BaseModel):
 
     id: UUID
     short_code: str
-    original_URL: str
+    original_url: str
     click_count: int
     created_at: datetime

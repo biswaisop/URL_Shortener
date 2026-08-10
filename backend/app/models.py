@@ -15,7 +15,7 @@ class URL(Base):
     )
     short_code: Mapped[str] = mapped_column(String(16), unique=True, index=True, nullable=False)
     original_url: Mapped[str] = mapped_column(String(2048), nullable=False)
-    click_count: Mapped[str] = mapped_column(Integer, default=0, nullable=False)
+    click_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=False), server_default=func.now(), nullable=False
     )

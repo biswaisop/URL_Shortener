@@ -9,7 +9,7 @@ from app.models import URL
 
 ALPHABET = string.ascii_letters + string.digits
 
-def generate_short_code(length: int = settings.short_code_length) -> str:
+def generate_short_code(length: int = settings.SHORT_CODE_LENGTH) -> str:
     return "".join(secrets.choice(ALPHABET) for _ in range(length))
 
 async def get_by_short_code(db:AsyncSession, short_code: str) -> URL | None:
@@ -27,7 +27,7 @@ async def create_short_url(db:AsyncSession, original_url: str) -> URL:
 
     for _ in range(5):
         code = generate_short_code()
-        if not get_by_short_code(db, code):
+        if not await get_by_short_code(db, code):
             url_object = URL(short_code = code, original_url=original_url)
             db.add(url_object)
             await db.commit()
@@ -39,5 +39,5 @@ async def create_short_url(db:AsyncSession, original_url: str) -> URL:
 async def increment_click_count(db: AsyncSession, url_obj: URL) -> None:
     await db.execute(update(URL).where(URL.id == url_obj.id).values(click_count = URL.click_count +1))
     await db.commit()
-    
+
 
